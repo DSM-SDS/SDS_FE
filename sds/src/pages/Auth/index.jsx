@@ -6,11 +6,22 @@ import { color } from "../../styles/theme";
 import Header from "../../components/Header";
 
 function LoginPage() {
-  const [loginData, setLoginData] = useState();
+  const [loginData, setLoginData] = useState({
+    username: "",
+    password: ""
+});
 
   const onClickLogin = () => {
     window.location.assign("/create");
   }
+
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setLoginData({
+      ...loginData,
+      [name]: value,
+    });
+  };
 
   return (
     <>
@@ -18,8 +29,8 @@ function LoginPage() {
       <Container>
         <Text>Login</Text>
         <InputDiv>
-          <Input type="text" placeholder="아이디" />
-          <Input type="password" placeholder="비밀번호" />
+          <Input type="text" placeholder="아이디" name="username" onChange={onChange} />
+          <Input type="password" placeholder="비밀번호" name="password" onChange={onChange} />
         </InputDiv>
         <Button onClick={() => onClickLogin()}>로그인</Button>
       </Container>
