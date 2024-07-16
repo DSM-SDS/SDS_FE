@@ -6,13 +6,20 @@ import { color } from "../../styles/theme";
 import Logo from "../../assets/icon/Logo";
 
 function Header() {
+  const onClickLogin = () => {
+    window.location.assign("/");
+  };
+
+  const onClickSignup = () => {
+    window.location.assign("/signup");
+  };
 
   return (
     <Container>
       <Logo />
       <ButtonDiv>
-        <Button>로그인</Button>
-        <Button>회원가입</Button>
+        <Button onClick={() => onClickLogin()}>로그인</Button>
+        <Button onClick={() => onClickSignup()}>회원가입</Button>
       </ButtonDiv>
     </Container>
   );
