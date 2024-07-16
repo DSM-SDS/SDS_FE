@@ -6,6 +6,8 @@ import { color } from "../../styles/theme";
 import Header from "../../components/Header";
 
 function LoginPage() {
+  const [loginData, setLoginData] = useState();
+
   const onClickLogin = () => {
     window.location.assign("/create");
   }
