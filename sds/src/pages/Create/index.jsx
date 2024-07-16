@@ -1,15 +1,25 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { styled } from "styled-components";
 import { color } from "../../styles/theme";
 
 import MainHeader from "../../components/MainHeader";
+import onReport from "../../utils/Report";
 
 const CreatePage = () => {
-  const onClickRemote = () => {
-    alert('신고 접수되었습니다.');
-  }
-  
+  const [reportData, setReportData] = useState({
+    title: "",
+    detail: "",
+    time: "",
+    date: "",
+  });
+
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setReportData({
+      ...reportData,
+      [name]: value,
+    });
+  };
 
   return (
     <>
@@ -19,22 +29,22 @@ const CreatePage = () => {
         <TopDiv>
           <InputDiv>
             <BoldText>날짜</BoldText>
-            <TopInput placeholder="발생한 날짜를 입력해주세요 ex)20240716"/>
+            <TopInput placeholder="발생한 날짜를 입력해주세요 ex)24_07_16" name="date" onChange={onChange} />
           </InputDiv>
           <InputDiv>
             <BoldText>시간</BoldText>
-            <TopInput placeholder="발생한 시간을 입력해주세요 ex)10:30 ~ 11:50"/>
+            <TopInput placeholder="발생한 시간을 입력해주세요 ex)10:30" name="time" onChange={onChange}/>
           </InputDiv>
         </TopDiv>
         <InputDiv>
           <BoldText>제목</BoldText>
-          <Input placeholder="제목을 입력해주세요"/>  
+          <Input placeholder="제목을 입력해주세요"name="title" onChange={onChange} />  
         </InputDiv>
         <InputDiv>
           <BoldText>신고 내용</BoldText>
-          <ContentsInput placeholder="신고 내용을 입력해주세요"/>
+          <ContentsInput placeholder="신고 내용을 입력해주세요" name="detail" onChange={onChange} />
         </InputDiv>
-        <Button onClick={() => onClickRemote()}>신고하기</Button>
+        <Button onClick={() => onReport(reportData)}>신고하기</Button>
       </Container>
     </>
   );
