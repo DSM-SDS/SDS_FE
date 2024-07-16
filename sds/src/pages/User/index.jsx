@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { styled } from "styled-components";
 import { color } from "../../styles/theme";
 
 import Header from "../../components/Header";
+import onSignup from "../../utils/Signup";
 
 function SignupPage() {
   const [signupInputData, setSignupInputData] = useState({
@@ -12,20 +12,16 @@ function SignupPage() {
     passwordCheck: "",
     name: "",
     hosu: "",
-    apt_name: ""
-  });
-
-  const [signupData, setSignupData] = useState({
-    username: "",
-    password: "",
-    name: "",
-    hosu: "",
     apt_name: "",
     role: "User"
   });
 
   const onClickSignup = () => {
-    window.location.assign("/");
+    if(signupInputData.password == signupInputData.passwordCheck) {
+      onSignup(signupInputData);
+    } else {
+      alert('비밀번호 확인이 일치하지 않습니다.');
+    }
   }
 
   const onChange = (e) => {
