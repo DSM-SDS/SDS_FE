@@ -66,6 +66,7 @@ const Text = styled.div`
   font-size: 40px;
   font-weight: bold;
   color: ${color.Red[1]};
+  -webkit-user-select: none;
 `
 
 const Input = styled.input`
@@ -97,6 +98,7 @@ const Button = styled.button`
   height: 60px;
   border: none;
   border-radius: 10px;
+  -webkit-user-select: none;
 
   &:hover {
     cursor: pointer;

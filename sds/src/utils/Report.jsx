@@ -16,8 +16,7 @@ const onReport = async ( data ) => {
       },
     })
       .then((res) => {
-        console.log(res.data);
-        return res.data;
+        alert('신고 접수가 되었습니다.');
       })
       .catch((err) => {
         console.log(err);
