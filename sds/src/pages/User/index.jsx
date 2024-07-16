@@ -6,6 +6,8 @@ import { color } from "../../styles/theme";
 import Header from "../../components/Header";
 
 function SignupPage() {
+  const [signupData, setSignupData] = useState();
+
   const onClickSignup = () => {
     window.location.assign("/");
   }
