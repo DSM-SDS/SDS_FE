@@ -17,6 +17,7 @@ const onReport = async ( data ) => {
     })
       .then((res) => {
         alert('신고 접수가 되었습니다.');
+        window.location.assign("/main");
       })
       .catch((err) => {
         console.log(err);
