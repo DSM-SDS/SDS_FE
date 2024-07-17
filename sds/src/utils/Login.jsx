@@ -14,7 +14,7 @@ const onLogin = async ( data ) => {
         sessionStorage.setItem("accessToken", accessToken);
         sessionStorage.setItem("refreshToken", refreshToken);
         alert(`로그인에 성공하였습니다.`);
-        window.location.assign("/create");
+        window.location.assign("/main");
       })
       .catch((err) => {
           console.log(err);
